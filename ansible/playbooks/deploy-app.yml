@@ -1,0 +1,101 @@
+---
+- name: Deploy TaskFlow API
+  hosts: taskflow_server
+  become: yes
+  vars:
+    app_dir: /opt/taskflow
+    docker_image: taskflow-api
+    
+  tasks:
+    - name: Criar diretório da aplicação
+      file:
+        path: "{{ app_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Copiar arquivos da aplicação
+      synchronize:
+        src: ../../app/
+        dest: "{{ app_dir }}/"
+        delete: yes
+        rsync_opts:
+          - "--exclude=node_modules"
+
+    - name: Parar containers antigos (se existirem)
+      shell: |
+        docker stop todo-api todo-db || true
+        docker rm todo-api todo-db || true
+      ignore_errors: yes
+
+    - name: Criar rede Docker
+      community.docker.docker_network:
+        name: taskflow-network
+        state: present
+
+    - name: Criar volume para PostgreSQL
+      community.docker.docker_volume:
+        name: postgres_data
+        state: present
+
+    - name: Iniciar banco de dados PostgreSQL
+      community.docker.docker_container:
+        name: todo-db
+        image: postgres:15-alpine
+        state: started
+        restart_policy: unless-stopped
+        networks:
+          - name: taskflow-network
+        env:
+          POSTGRES_DB: tododb
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        volumes:
+          - postgres_data:/var/lib/postgresql/data
+          - "{{ app_dir }}/init.sql:/docker-entrypoint-initdb.d/init.sql"
+
+    - name: Aguardar PostgreSQL ficar pronto
+      wait_for:
+        timeout: 10
+
+    - name: Build da imagem Docker da aplicação
+      community.docker.docker_image:
+        name: "{{ docker_image }}"
+        build:
+          path: "{{ app_dir }}"
+        source: build
+        state: present
+        force_source: yes
+
+    - name: Iniciar aplicação
+      community.docker.docker_container:
+        name: todo-api
+        image: "{{ docker_image }}"
+        state: started
+        restart_policy: unless-stopped
+        networks:
+          - name: taskflow-network
+        ports:
+          - "3000:3000"
+        env:
+          DB_HOST: todo-db
+          DB_PORT: "5432"
+          DB_NAME: tododb
+          DB_USER: postgres
+          DB_PASSWORD: postgres
+          PORT: "3000"
+
+    - name: Aguardar aplicação ficar pronta
+      wait_for:
+        port: 3000
+        delay: 5
+        timeout: 30
+
+    - name: Testar health check
+      uri:
+        url: http://localhost:3000/health
+        method: GET
+      register: health_check
+
+    - name: Mostrar resultado do health check
+      debug:
+        var: health_check.json
