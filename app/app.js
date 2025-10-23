@@ -85,6 +85,15 @@ app.delete('/tasks/:id', async (req, res) => {
   }
 });
 
+// Novo endpoint de versão
+app.get('/version', (req, res) => {
+  res.json({ 
+    version: '2.0.0', 
+    updated: 'via GitHub Actions CI/CD',
+    timestamp: new Date().toISOString()
+  });
+});
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
