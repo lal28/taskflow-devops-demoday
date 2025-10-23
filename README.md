@@ -1,4 +1,4 @@
-# 🚀 TaskFlow DevOps - Projeto Completo de CI/CD
+#TaskFlow DevOps
 
 [![Deploy Status](https://github.com/SEU_USUARIO/taskflow-devops/actions/workflows/deploy.yml/badge.svg)](https://github.com/SEU_USUARIO/taskflow-devops/actions)
 
@@ -109,29 +109,29 @@ Implementação de um pipeline completo de DevOps com:
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                         DESENVOLVEDOR                            │
-│                              ↓                                   │
-│                     git push (GitHub)                            │
+│                         DESENVOLVEDOR                           │
+│                              ↓                                  │
+│                     git push (GitHub)                           │
 └─────────────────────────────────────────────────────────────────┘
                                ↓
 ┌─────────────────────────────────────────────────────────────────┐
-│                     GITHUB ACTIONS (CI/CD)                       │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
-│  │  Build       │→ │  Lint Check  │→ │  Deploy      │          │
-│  │  (Docker)    │  │  (Code QA)   │  │  (Ansible)   │          │
-│  └──────────────┘  └──────────────┘  └──────────────┘          │
+│                     GITHUB ACTIONS (CI/CD)                      │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
+│  │  Build       │→ │  Lint Check  │→ │  Deploy      │           │
+│  │  (Docker)    │  │  (Code QA)   │  │  (Ansible)   │           │
+│  └──────────────┘  └──────────────┘  └──────────────┘           │
 └─────────────────────────────────────────────────────────────────┘
                                ↓
 ┌─────────────────────────────────────────────────────────────────┐
-│                    AWS EC2 (Provisionado com Terraform)          │
-│                                                                   │
+│                    AWS EC2 (Provisionado com Terraform)         │
+│                                                                 │
 │  ┌────────────────────────────────────────────────────────────┐ │
-│  │                      Docker Host                            │ │
-│  │  ┌──────────────────┐       ┌──────────────────┐          │ │
-│  │  │  Container App   │◄─────►│  Container DB    │          │ │
-│  │  │  (Node.js API)   │       │  (PostgreSQL)    │          │ │
-│  │  │  Port: 3000      │       │  Port: 5432      │          │ │
-│  │  └──────────────────┘       └──────────────────┘          │ │
+│  │                      Docker Host                           │ │
+│  │  ┌──────────────────┐       ┌──────────────────┐           │ │
+│  │  │  Container App   │◄─────►│  Container DB    │           │ │
+│  │  │  (Node.js API)   │       │  (PostgreSQL)    │           │ │
+│  │  │  Port: 3000      │       │  Port: 5432      │           │ │
+│  │  └──────────────────┘       └──────────────────┘           │ │
 │  └────────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────────┘
                                ↓
