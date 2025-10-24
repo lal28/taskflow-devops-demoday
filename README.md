@@ -1,4 +1,4 @@
-#TaskFlow DevOps
+# TaskFlow DevOps - Projeto Completo de CI/CD
 
 [![Deploy Status](https://github.com/SEU_USUARIO/taskflow-devops/actions/workflows/deploy.yml/badge.svg)](https://github.com/SEU_USUARIO/taskflow-devops/actions)
 
