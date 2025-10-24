@@ -2,6 +2,8 @@
 
 [![Deploy Status](https://github.com/SEU_USUARIO/taskflow-devops/actions/workflows/deploy.yml/badge.svg)](https://github.com/SEU_USUARIO/taskflow-devops/actions)
 
+Projeto desenvolvido para o curso de DevOps da Avanti Bootcamp.
+
 Projeto de estudo demonstrando a implementação completa de práticas DevOps, desde o provisionamento de infraestrutura até deploy automatizado com CI/CD.
 
 ## 📋 Índice
@@ -654,9 +656,6 @@ sudo netstat -tulpn | grep :5432
 - [12 Factor App](https://12factor.net/) - Metodologia para aplicações modernas
 - [Site Reliability Engineering](https://sre.google/books/) - Livros do Google sobre SRE
 
-## 👥 Autor
-
-**Lucas** - Projeto desenvolvido para o curso de DevOps da Avanti Bootcamp
 
 ## 📄 Licença
 
