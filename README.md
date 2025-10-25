@@ -429,10 +429,10 @@ O pipeline é executado automaticamente a cada push na branch `main`:
 
 | Métrica | Antes | Depois | Classificação |
 |---------|-------|---------|---------------|
-| **Deployment Frequency** | 2-3/mês | Múltiplos/dia | 🟢 Elite |
-| **Lead Time for Changes** | 14 dias | 5 minutos | 🟢 Elite |
-| **Time to Restore Service** | 1-3 horas | 2 minutos | 🟢 Elite |
-| **Change Failure Rate** | 40% | <5% | 🟢 Elite |
+| **Frequência de Deploys** | 2-3/mês | Múltiplos/dia | 🟢 Elite |
+| **Tempo para implantação** | 14 dias | 5 minutos | 🟢 Elite |
+| **Tempo para Restaurar o Serviço** | 1-3 horas | 2 minutos | 🟢 Elite |
+| **Taxa de Falhas nas implantações** | 40% | <5% | 🟢 Elite |
 
 ## 📝 Escopo de Implementação
 
