@@ -1,6 +1,5 @@
 # TaskFlow DevOps - Projeto Completo de CI/CD
 
-[![Deploy Status](https://github.com/SEU_USUARIO/taskflow-devops/actions/workflows/deploy.yml/badge.svg)](https://github.com/SEU_USUARIO/taskflow-devops/actions)
 
 Projeto desenvolvido para o curso de DevOps da Avanti Bootcamp.
 

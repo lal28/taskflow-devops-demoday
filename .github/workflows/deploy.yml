@@ -9,7 +9,7 @@ on:
       - 'LICENSE'
       - '.gitignore'
   workflow_dispatch:
-
+#TESTES
 jobs:
   test:
     name: Run Tests
@@ -33,7 +33,7 @@ jobs:
       run: |
         echo "Running tests..."
         node -e "console.log('Tests passed!')"
-
+  #BUILD
   build:
     name: Build Docker Image
     runs-on: ubuntu-latest
@@ -60,7 +60,7 @@ jobs:
         tags: |
           ${{ secrets.DOCKER_HUB_USER }}/taskflow-api:${{ github.sha }}
           ${{ secrets.DOCKER_HUB_USER }}/taskflow-api:latest
-
+#DEPLOY
   deploy:
     name: Deploy to AWS
     runs-on: ubuntu-latest
