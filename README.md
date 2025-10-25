@@ -5,9 +5,9 @@ Projeto desenvolvido para o curso de DevOps da Avanti Bootcamp.
 
 ## Equipe:
 
-Lucas Araujo Lopes
-Dryelli Vitoria Martins de Freitas
-Hericlys Luiz Tavares de Sá
+- Lucas Araujo Lopes
+- Dryelli Vitoria Martins de Freitas
+- Hericlys Luiz Tavares de Sá
 
 ---
 
