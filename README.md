@@ -119,8 +119,8 @@ Implementação de um pipeline completo de DevOps com:
 ┌─────────────────────────────────────────────────────────────────┐
 │                     GITHUB ACTIONS (CI/CD)                      │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
-│  │  Build       │→ │  Lint Check  │→ │  Deploy      │           │
-│  │  (Docker)    │  │  (Code QA)   │  │  (Ansible)   │           │
+│  │  Lint Check  │→ │  build       │→ │  Deploy      │           │
+│  │  (Code QA)   │  │  (Docker)    │  │  (Ansible)   │           │
 │  └──────────────┘  └──────────────┘  └──────────────┘           │
 └─────────────────────────────────────────────────────────────────┘
                                ↓
@@ -143,8 +143,8 @@ Implementação de um pipeline completo de DevOps com:
 ### Fluxo de Deploy Automatizado
 
 ```
-Developer Commit → GitHub Actions Trigger → Build Docker Image → 
-Code Quality Check → Push to Registry → Ansible Deploy → 
+Developer Commit → GitHub Actions Trigger → Code Quality Check → 
+Build Docker Image → Push to Registry → Ansible Deploy → 
 Health Check → Production Ready! ✅
 ```
 
@@ -315,8 +315,8 @@ git commit -m "feat: Add new endpoint"
 git push
 
 # GitHub Actions vai automaticamente:
-# 1. Build da nova imagem Docker
-# 2. Verificar qualidade do código
+# 1. Verificar qualidade do código
+# 2. Build da nova imagem Docker
 # 3. Fazer deploy na AWS
 # 4. Validar com health check
 
@@ -365,17 +365,17 @@ taskflow-devops/
 O pipeline é executado automaticamente a cada push na branch `main`:
 
 ```yaml
-1. Build Job (2-3 min)
-   └─ Checkout código
-   └─ Setup Docker Buildx
-   └─ Login Docker Hub
-   └─ Build e Push imagem
-
-2. Test Job (1 min)
+1. Test Job (1 min)
    └─ Checkout código
    └─ Setup Node.js
    └─ Instalar dependências
    └─ Verificar qualidade do código
+
+2. Build Job (2-3 min)
+   └─ Checkout código
+   └─ Setup Docker Buildx
+   └─ Login Docker Hub
+   └─ Build e Push imagem
 
 3. Deploy Job (2-3 min)
    └─ Checkout código
