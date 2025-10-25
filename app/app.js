@@ -88,7 +88,7 @@ app.delete('/tasks/:id', async (req, res) => {
 // Novo endpoint de versão
 app.get('/version', (req, res) => {
   res.json({ 
-    version: '3.1.0', 
+    version: '4.1.0', 
     updated: 'via GitHub Actions CI/CD',
     timestamp: new Date().toISOString()
   });

@@ -3,6 +3,14 @@
 
 Projeto desenvolvido para o curso de DevOps da Avanti Bootcamp.
 
+## Equipe:
+
+Lucas Araujo Lopes
+Dryelli Vitoria Martins de Freitas
+Hericlys Luiz Tavares de Sá
+
+---
+
 Projeto de estudo demonstrando a implementação completa de práticas DevOps, desde o provisionamento de infraestrutura até deploy automatizado com CI/CD.
 
 ## 📋 Índice
